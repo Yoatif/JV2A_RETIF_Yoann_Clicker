@@ -44,7 +44,7 @@ public class ClickHunter : MonoBehaviour
         if (clikerData.HunterHealth > 0)
         {
             clikerData.HunterHealth--;
-            Debug.Log("Hunter life = " + clikerData.HunterHealth);
+            
             if(clikerData.HunterHealth <= 0)
             {
                 GenerateNewHunter();
@@ -68,7 +68,7 @@ public class ClickHunter : MonoBehaviour
     public void GenerateNewHunter()
     {
         clikerData.HunterType = Random.Range(0, 1);
-        Debug.Log("Hunter Type = " + clikerData.HunterType);
+        
 
         switch(clikerData.HunterType)
         {

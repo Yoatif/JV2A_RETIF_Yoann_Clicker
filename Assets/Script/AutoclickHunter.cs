@@ -32,7 +32,7 @@ public class AutoclickHunter : MonoBehaviour
         }
         while (AutoclickEnabled)
         {
-            Debug.Log("je fonctionne");
+            
             AutoClickPoint();
             yield return new WaitForSeconds(AutoclickSpeed);
         }
@@ -53,8 +53,8 @@ public class AutoclickHunter : MonoBehaviour
             // Soustrait le prix du boost au score
             clikerData.ClickHunterScore1 -= AutoclickPrice;
 
-            //utilise l'équation pour calculer le nouveau prix et le convertit en integer.
-            //oui Louis, c'est l'équation qui calcul l'expérience dans pokemon 1ere génération.
+            //utilise l'ï¿½quation pour calculer le nouveau prix et le convertit en integer.
+            //oui Louis, c'est l'ï¿½quation qui calcul l'expï¿½rience dans pokemon 1ere gï¿½nï¿½ration.
             //non ce n'est pas un clin d'oeil, juste que sa me paraissait plus doux que celle de DnD
             float newFloatPrice = Mathf.Round((4 * Mathf.Pow(AutoclickPrice, 3)) / 5);
             int newIntPrice = Mathf.RoundToInt(newFloatPrice);
@@ -68,7 +68,7 @@ public class AutoclickHunter : MonoBehaviour
 
     public void OnbuttonClick()
     {
-        Debug.Log("AutoClick " +AutoclickEnabled);
+        
         if (!AutoclickEnabled)
         {
             AutoclickEnabled = true;
@@ -81,7 +81,7 @@ public class AutoclickHunter : MonoBehaviour
             RectTransform rt = BackgroundPicture.GetComponent<RectTransform>();
             Vector3 imageBottomLeft = rt.position;
 
-            // Instancie le prefab à la position du coin inférieur gauche du UI Image
+            // Instancie le prefab ï¿½ la position du coin infï¿½rieur gauche du UI Image
             Instantiate(PrefabToInstantiate, imageBottomLeft, Quaternion.identity);
         }
         
