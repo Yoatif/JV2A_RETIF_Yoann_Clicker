@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f5db245b99b084cb976a148f9152b2, type: 3}
+  m_Name: New Hunter
+  m_EditorClassIdentifier: 
+  ClickHunterScore1: 0
+  ClickHunterScore2: 0
+  HunterHealth: 20
+  HunterType: 0
+  HunterPic:
+  - {fileID: 21300000, guid: cdac61f50cc43ad4284bb5f958a41b2d, type: 3}
+  - {fileID: 21300000, guid: 372ae553c8073944193f8697850fe26c, type: 3}
