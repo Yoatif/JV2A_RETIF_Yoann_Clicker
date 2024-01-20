@@ -53,14 +53,8 @@ public class AutoclickHunter : MonoBehaviour
             // Soustrait le prix du boost au score
             clikerData.ClickHunterScore1 -= AutoclickPrice;
 
-            //utilise l'�quation pour calculer le nouveau prix et le convertit en integer.
-            //oui Louis, c'est l'�quation qui calcul l'exp�rience dans pokemon 1ere g�n�ration.
-            //non ce n'est pas un clin d'oeil, juste que sa me paraissait plus doux que celle de DnD
-            float newFloatPrice = Mathf.Round((4 * Mathf.Pow(AutoclickPrice, 3)) / 5);
-            int newIntPrice = Mathf.RoundToInt(newFloatPrice);
-
             //met a jour les valeur des prix.
-            AutoclickPrice = newIntPrice;
+            AutoclickPrice += AutoclickPrice;
             Price.text = AutoclickPrice.ToString();
         }
         
@@ -73,17 +67,29 @@ public class AutoclickHunter : MonoBehaviour
         {
             AutoclickEnabled = true;
             Start();
+            AddPicture();
+            SetNewPrice();
         }
         else
         {
-            AutoclickValue *= 0.2f;
 
-            RectTransform rt = BackgroundPicture.GetComponent<RectTransform>();
-            Vector3 imageBottomLeft = rt.position;
-
-            // Instancie le prefab � la position du coin inf�rieur gauche du UI Image
-            Instantiate(PrefabToInstantiate, imageBottomLeft, Quaternion.identity);
+            AutoclickValue += (AutoclickValue * 0.2f);
+            AddPicture();
+            SetNewPrice();
         }
         
+    }
+
+    public void AddPicture()
+    {
+        RectTransform rt = BackgroundPicture.GetComponent<RectTransform>();
+
+        float randomX = Random.Range(rt.rect.xMin, rt.rect.xMax);
+        float randomY = Random.Range(rt.rect.yMin, rt.rect.yMax);
+
+        Vector3 randomPosition = new Vector3(randomX, randomY, 0f);
+
+        var newPics =Instantiate(PrefabToInstantiate, BackgroundPicture.transform);
+        newPics.transform.localPosition = randomPosition;
     }
 }

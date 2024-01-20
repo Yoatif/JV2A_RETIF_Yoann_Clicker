@@ -6,7 +6,6 @@ using UnityEngine;
 public class ClikerData : ScriptableObject
 {
     public float ClickHunterScore1 = 0;
-    public float ClickHunterScore2 = 0;
     public int HunterHealth;
     public int HunterType;
     public Sprite[] HunterPic;

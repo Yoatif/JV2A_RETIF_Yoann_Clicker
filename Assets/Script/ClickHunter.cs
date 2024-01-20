@@ -8,27 +8,21 @@ using TMPro;
 public class ClickHunter : MonoBehaviour
 {
     public TextMeshProUGUI scoreTextHunter1;
-    //public TextMeshProUGUI scoreTextHunter2;
 
     public Image HunterPicture;
     public ClikerData clikerData;
-    // Start is called before the first frame update
+
+    public int clickPoint = 1;
+
     void Start()
     {
         clikerData.ClickHunterScore1 = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
         
     }
 
     public void UpdateHunterScore()
     {
         scoreTextHunter1.text = clikerData.ClickHunterScore1.ToString();
-        //scoreTextHunter2.text = clikerData.ClickHunterScore2.ToString();
     }
 
     public void UpdateHunterPicture()
@@ -44,22 +38,14 @@ public class ClickHunter : MonoBehaviour
         if (clikerData.HunterHealth > 0)
         {
             clikerData.HunterHealth--;
-            
             if(clikerData.HunterHealth <= 0)
             {
                 GenerateNewHunter();
                 UpdateHunterPicture();
             }
 
-            switch (clikerData.HunterType)
-            {
-                case 0:
-                    clikerData.ClickHunterScore1++;
-                    break;
-                case 1:
-                    clikerData.ClickHunterScore2++;
-                    break;
-            }
+            clikerData.ClickHunterScore1 += clickPoint;
+
 
             UpdateHunterScore();
         }
@@ -68,7 +54,6 @@ public class ClickHunter : MonoBehaviour
     public void GenerateNewHunter()
     {
         clikerData.HunterType = Random.Range(0, 1);
-        
 
         switch(clikerData.HunterType)
         {
